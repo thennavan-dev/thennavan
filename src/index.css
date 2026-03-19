@@ -95,3 +95,77 @@
     background: linear-gradient(135deg, hsl(var(--neon-blue) / 0.1), hsl(var(--neon-purple) / 0.1));
   }
 }
+
+@layer components {
+  .prose-custom {
+    @apply text-foreground leading-relaxed;
+  }
+
+  .prose-custom h1 {
+    @apply text-3xl sm:text-4xl font-bold mt-10 mb-4 text-foreground;
+  }
+
+  .prose-custom h2 {
+    @apply text-2xl font-semibold mt-8 mb-3 text-foreground;
+  }
+
+  .prose-custom h3 {
+    @apply text-xl font-semibold mt-6 mb-2 text-foreground;
+  }
+
+  .prose-custom p {
+    @apply mb-4 text-muted-foreground leading-relaxed;
+  }
+
+  .prose-custom a {
+    @apply text-primary underline underline-offset-2 hover:text-primary/80 transition-colors;
+  }
+
+  .prose-custom ul {
+    @apply list-disc pl-6 mb-4 space-y-1 text-muted-foreground;
+  }
+
+  .prose-custom ol {
+    @apply list-decimal pl-6 mb-4 space-y-1 text-muted-foreground;
+  }
+
+  .prose-custom blockquote {
+    @apply border-l-2 border-primary/50 pl-4 py-1 my-6 italic text-muted-foreground;
+  }
+
+  .prose-custom code:not(pre code) {
+    @apply font-mono text-sm bg-muted px-1.5 py-0.5 rounded text-primary;
+  }
+
+  .prose-custom pre {
+    @apply rounded-xl p-4 my-6 overflow-x-auto text-sm font-mono bg-[hsl(240,10%,7%)] border border-border;
+  }
+
+  .prose-custom pre code {
+    @apply bg-transparent p-0 text-foreground;
+  }
+
+  .prose-custom table {
+    @apply w-full my-6 text-sm;
+  }
+
+  .prose-custom th {
+    @apply text-left font-semibold py-2 px-3 border-b border-border text-foreground;
+  }
+
+  .prose-custom td {
+    @apply py-2 px-3 border-b border-border/50 text-muted-foreground;
+  }
+
+  .prose-custom strong {
+    @apply font-semibold text-foreground;
+  }
+
+  .prose-custom hr {
+    @apply my-8 border-border;
+  }
+
+  .prose-custom img {
+    @apply rounded-xl my-6 max-w-full;
+  }
+}
