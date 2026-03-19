@@ -15,133 +15,153 @@ export interface Project {
 
 export const allProjects: Project[] = [
   {
-    slug: "securechat",
-    title: "SecureChat",
-    description: "End-to-end encrypted messaging app built with Flutter and Firebase, featuring biometric authentication.",
-    longDescription: "SecureChat is a privacy-first messaging application that ensures all communications are end-to-end encrypted. Built with Flutter for cross-platform support and Firebase for real-time data sync, the app features biometric authentication, disappearing messages, and encrypted file sharing. The UI is designed to be minimal yet intuitive, providing a seamless chatting experience without compromising on security.",
-    tech: ["Flutter", "Firebase", "Dart", "AES-256", "RSA"],
-    emoji: "🔐",
+    slug: "threat-detection-ai",
+    title: "Threat Detection AI",
+    description:
+      "Machine learning-based intrusion detection system trained on real-world network traffic data.",
+    longDescription:
+      "An AI-powered intrusion detection system built using real-world datasets such as UNSW-NB15. The system analyzes network traffic and classifies malicious activity using machine learning models. It includes a full pipeline from preprocessing and feature engineering to model training and evaluation, along with a Streamlit dashboard for visualization and explainability.",
+    tech: ["Python", "Pandas", "Scikit-learn", "Streamlit", "Machine Learning"],
+    emoji: "🧠",
     featured: true,
-    github: "#",
-    demo: "#",
+    github: "https://github.com/thennavan-dev/Thread_Detection_AI",
     features: [
-      "End-to-end encryption using AES-256 and RSA key exchange",
-      "Biometric authentication (fingerprint & face ID)",
-      "Disappearing messages with custom timers",
-      "Encrypted file and image sharing",
-      "Real-time typing indicators and read receipts",
-      "Cross-platform support (iOS & Android)",
+      "Trained on UNSW-NB15 dataset",
+      "Anomaly and attack classification",
+      "End-to-end ML pipeline",
+      "Interactive Streamlit dashboard",
+      "Explainable AI outputs",
+      "Feature engineering and preprocessing",
     ],
     challenges: [
       {
-        problem: "Implementing reliable E2E encryption without degrading performance on low-end devices.",
-        solution: "Used a hybrid encryption approach — RSA for key exchange and AES-256 for message encryption, with lazy key generation to reduce startup overhead.",
+        problem: "Imbalanced dataset affecting model performance.",
+        solution:
+          "Applied resampling techniques and used F1-score and precision-recall metrics for better evaluation.",
       },
       {
-        problem: "Maintaining real-time sync while keeping messages encrypted on the server.",
-        solution: "Leveraged Firebase Realtime Database with client-side encryption/decryption, ensuring the server never sees plaintext data.",
+        problem: "Making ML results understandable to users.",
+        solution:
+          "Integrated visual dashboards and feature importance explanations using Streamlit.",
       },
     ],
   },
+
   {
-    slug: "vulnscanner",
-    title: "VulnScanner",
-    description: "Automated vulnerability scanner for web applications with detailed reporting and remediation suggestions.",
-    longDescription: "VulnScanner is an automated security tool designed to identify common vulnerabilities in web applications. It performs comprehensive scans including SQL injection, XSS, CSRF, and misconfiguration checks. The tool generates detailed reports with severity ratings and actionable remediation steps, making it invaluable for security audits and penetration testing workflows.",
-    tech: ["Python", "Docker", "Linux", "BeautifulSoup", "Requests"],
-    emoji: "🛡️",
+    slug: "ctf-flutter-app",
+    title: "CTF Tracker App",
+    description:
+      "Flutter mobile app that tracks live and upcoming CTF competitions using the CTFtime API.",
+    longDescription:
+      "A cross-platform mobile application built with Flutter that integrates the CTFtime API to fetch and display real-time Capture The Flag (CTF) events. The app allows users to explore upcoming competitions, view event details, and stay connected with the global cybersecurity community through a clean and responsive interface.",
+    tech: ["Flutter", "Dart", "REST API"],
+    emoji: "📱",
     featured: true,
-    github: "#",
+    github: "https://github.com/thennavan-dev/CTF_Time",
     features: [
-      "Automated scanning for OWASP Top 10 vulnerabilities",
-      "SQL injection and XSS detection with payload fuzzing",
-      "Detailed HTML/PDF report generation",
-      "Docker-based deployment for isolated scanning",
-      "Configurable scan profiles (quick, standard, deep)",
-      "API endpoint discovery and testing",
+      "CTFtime API integration",
+      "Real-time CTF event listing",
+      "Detailed competition view",
+      "Responsive and clean UI",
+      "Mobile-first experience",
+      "JSON parsing and API handling",
     ],
     challenges: [
       {
-        problem: "Reducing false positives while maintaining comprehensive coverage.",
-        solution: "Implemented a multi-stage verification system that confirms vulnerabilities with secondary payloads before reporting them.",
+        problem: "Handling inconsistent API data and response formats.",
+        solution:
+          "Implemented robust JSON parsing and fallback handling for missing fields.",
+      },
+      {
+        problem: "Maintaining smooth UI performance with dynamic data.",
+        solution:
+          "Used efficient state management and optimized widget rendering in Flutter.",
       },
     ],
   },
+
   {
-    slug: "taskflow",
-    title: "TaskFlow",
-    description: "Beautiful task management app with real-time sync, offline support, and team collaboration features.",
-    longDescription: "TaskFlow is a feature-rich task management application that combines beautiful design with powerful functionality. It supports real-time collaboration, offline-first architecture with seamless sync, and intelligent task prioritization. The app includes kanban boards, calendar views, and detailed analytics to help teams and individuals stay productive.",
-    tech: ["Flutter", "MongoDB", "TypeScript", "Node.js", "Socket.io"],
-    emoji: "✅",
+    slug: "evtx-analyzer",
+    title: "EVTX Log Analyzer",
+    description:
+      "Forensic tool to parse and analyze Windows Event Logs for security investigations.",
+    longDescription:
+      "A desktop-based forensic analysis tool built in Python to parse Windows EVTX log files. It extracts and structures event data, enabling security analysts to detect suspicious activities and investigate incidents effectively through a simple GUI interface.",
+    tech: ["Python", "Tkinter", "Windows", "Log Analysis"],
+    emoji: "🧰",
     featured: true,
-    github: "#",
-    demo: "#",
+    github: "https://github.com/thennavan-dev/evtx_viewer",
     features: [
-      "Kanban board with drag-and-drop task management",
-      "Offline-first architecture with automatic sync",
-      "Real-time collaboration with live cursors",
-      "Smart task prioritization using ML",
-      "Calendar and timeline views",
-      "Team workspaces with role-based access",
+      "EVTX log parsing and extraction",
+      "GUI-based log viewer",
+      "Structured event data display",
+      "Security-focused insights",
+      "Useful for incident response",
+    ],
+    challenges: [
+      {
+        problem: "Parsing complex and large EVTX log files efficiently.",
+        solution:
+          "Used optimized parsing libraries and structured data handling techniques.",
+      },
     ],
   },
+
   {
-    slug: "netmonitor",
-    title: "NetMonitor",
-    description: "Network monitoring dashboard that visualizes traffic patterns and detects anomalies in real-time.",
-    longDescription: "NetMonitor provides real-time visibility into network traffic with an intuitive dashboard. It captures and analyzes packets, visualizes traffic patterns, and uses statistical analysis to detect anomalies that could indicate security threats or performance issues. Perfect for network administrators and security professionals.",
-    tech: ["TypeScript", "SQL", "Docker", "React", "D3.js"],
-    emoji: "📡",
-    featured: false,
-    github: "#",
+    slug: "phishing-detection",
+    title: "Phishing Detection System",
+    description:
+      "Machine learning system to detect phishing URLs using structural and domain-based features.",
+    longDescription:
+      "A cybersecurity-focused machine learning project that classifies URLs as phishing or legitimate. The system extracts features such as URL length, domain characteristics, and patterns, then uses classification algorithms to detect malicious links and improve web security awareness.",
+    tech: ["Python", "Scikit-learn", "Machine Learning"],
+    emoji: "🎣",
+    featured: true,
+    github: "https://github.com/thennavan-dev/phishing",
     features: [
-      "Real-time traffic visualization with interactive charts",
-      "Anomaly detection using statistical analysis",
-      "Protocol-level packet inspection",
-      "Custom alerting rules and notifications",
-      "Historical data analysis and trend reporting",
+      "URL feature extraction",
+      "Phishing vs legitimate classification",
+      "ML model training and evaluation",
+      "Security-focused dataset handling",
+    ],
+    challenges: [
+      {
+        problem: "Selecting meaningful features from raw URLs.",
+        solution:
+          "Engineered features like length, symbols, and domain patterns to improve model accuracy.",
+      },
     ],
   },
+
   {
-    slug: "cryptowallet-ui",
-    title: "CryptoWallet UI",
-    description: "Clean and modern cryptocurrency wallet interface with multi-chain support and portfolio tracking.",
-    longDescription: "A beautifully designed cryptocurrency wallet interface supporting multiple blockchain networks. Features include portfolio tracking with real-time price updates, transaction history visualization, and a clean send/receive flow. The UI prioritizes usability while maintaining the security-conscious design patterns expected in crypto applications.",
-    tech: ["Flutter", "Dart", "REST API", "Web3"],
-    emoji: "💰",
-    featured: false,
-    github: "#",
-    demo: "#",
+    slug: "smart-helmet",
+    title: "Smart Helmet",
+    description:
+      "IoT-based safety system using sensors to monitor environmental conditions in real time.",
+    longDescription:
+      "An IoT project designed to enhance industrial safety by integrating environmental sensors into a smart helmet. The system monitors gas levels and temperature in real time and alerts users to hazardous conditions, combining embedded systems with practical safety applications.",
+    tech: ["IoT", "Embedded Systems", "C++", "Sensors", "Arduino"],
+    emoji: "🪖",
+    featured: true,
+    github: "https://github.com/thennavan-dev/Smart-Helmet",
     features: [
-      "Multi-chain wallet support (ETH, BTC, SOL)",
-      "Real-time portfolio tracking with price charts",
-      "Intuitive send/receive transaction flow",
-      "Transaction history with filtering",
-      "QR code scanning for addresses",
-      "Biometric security for transactions",
+      "Real-time environmental monitoring",
+      "Gas and temperature sensors",
+      "Alert system for hazardous conditions",
+      "Embedded system integration",
+      "Hardware + software implementation",
     ],
-  },
-  {
-    slug: "ctf-toolkit",
-    title: "CTF Toolkit",
-    description: "Collection of scripts and tools for CTF competitions including crypto, forensics, and reverse engineering helpers.",
-    longDescription: "A comprehensive toolkit built for CTF (Capture The Flag) competitions. It includes automated scripts for common challenges in cryptography, forensics, web exploitation, and reverse engineering. The toolkit is designed to be modular and extensible, allowing players to quickly adapt to different challenge types during competitions.",
-    tech: ["Python", "Bash", "Linux", "Cryptography"],
-    emoji: "🏴",
-    featured: false,
-    github: "#",
-    features: [
-      "Automated crypto challenge solvers (Caesar, Vigenère, RSA)",
-      "Forensics tools for file carving and steganography",
-      "Web exploitation helpers (SQLi, XSS payloads)",
-      "Binary analysis and reverse engineering scripts",
-      "Network packet analysis utilities",
-      "Modular plugin system for custom tools",
+    challenges: [
+      {
+        problem: "Ensuring accurate sensor readings in varying environments.",
+        solution:
+          "Calibrated sensors and implemented threshold-based alert logic.",
+      },
     ],
   },
 ];
 
 export const featuredProjects = allProjects.filter((p) => p.featured);
 
-export const getProjectBySlug = (slug: string) => allProjects.find((p) => p.slug === slug);
+export const getProjectBySlug = (slug: string) =>
+  allProjects.find((p) => p.slug === slug);
