@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { featuredProjects } from "@/data/projects";
 
@@ -32,7 +32,7 @@ const ProjectsPreview = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredProjects.slice(0, 3).map((project, i) => (
               <motion.div
-                key={project.title}
+                key={project.slug}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -40,32 +40,24 @@ const ProjectsPreview = () => {
                 whileHover={{ y: -6 }}
                 className="glass-hover rounded-xl overflow-hidden group"
               >
-                <div className="h-44 gradient-bg-hover flex items-center justify-center">
-                  <span className="text-4xl">{project.emoji}</span>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((t) => (
-                      <span key={t} className="text-xs font-mono px-2 py-1 rounded-md bg-muted text-muted-foreground">
-                        {t}
-                      </span>
-                    ))}
+                <Link to={`/projects/${project.slug}`}>
+                  <div className="h-44 gradient-bg-hover flex items-center justify-center">
+                    <span className="text-4xl">{project.emoji}</span>
                   </div>
-                  <div className="flex gap-3">
-                    {project.github && (
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                        <Github className="w-4 h-4" />
-                      </a>
-                    )}
-                    {project.demo && (
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{project.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.slice(0, 3).map((t) => (
+                        <span key={t} className="text-xs font-mono px-2 py-1 rounded-md bg-muted text-muted-foreground">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
