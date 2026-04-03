@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Terminal } from "lucide-react";
 
@@ -15,7 +15,9 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,13 +29,24 @@ const Navbar = () => {
     setMobileOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    if (location.pathname === "/" && scrollTarget) {
+      const el = document.getElementById(scrollTarget);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 50);
+      }
+      setScrollTarget(null);
+    }
+  }, [location, scrollTarget]);
+
   const handleNavClick = (href: string) => {
     if (href.startsWith("/#")) {
       const id = href.slice(2);
       if (location.pathname === "/") {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       } else {
-        window.location.href = href;
+        setScrollTarget(id);
+        navigate("/");
       }
     }
     setMobileOpen(false);
